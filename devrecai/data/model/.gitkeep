@@ -1,0 +1,3 @@
+# Trained XGBoost model artifacts are stored here.
+# Files: model_YYYYMMDD_HHMMSS.json, latest.json
+# Run: devrec train

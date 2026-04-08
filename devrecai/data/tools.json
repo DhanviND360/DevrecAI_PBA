@@ -1,0 +1,3431 @@
+[
+  {
+    "name": "GitHub Actions",
+    "category": "CI/CD",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 95,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2",
+      "iso27001"
+    ],
+    "integrations": [
+      "docker",
+      "kubernetes",
+      "aws",
+      "gcp",
+      "azure",
+      "terraform",
+      "helm",
+      "slack",
+      "jira",
+      "datadog"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 2,
+    "official_url": "https://github.com/features/actions",
+    "docs_url": "https://docs.github.com/actions"
+  },
+  {
+    "name": "GitLab CI",
+    "category": "CI/CD",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 90,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2",
+      "iso27001",
+      "gdpr"
+    ],
+    "integrations": [
+      "docker",
+      "kubernetes",
+      "terraform",
+      "helm",
+      "prometheus",
+      "grafana",
+      "slack",
+      "jira"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 3,
+    "official_url": "https://gitlab.com/gitlab-org/gitlab",
+    "docs_url": "https://docs.gitlab.com/ee/ci/"
+  },
+  {
+    "name": "Jenkins",
+    "category": "CI/CD",
+    "license": "oss",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 4,
+    "community_health_score": 75,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "docker",
+      "kubernetes",
+      "aws",
+      "gcp",
+      "azure",
+      "terraform",
+      "ansible",
+      "sonarqube",
+      "jira"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 22,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 8,
+    "official_url": "https://www.jenkins.io",
+    "docs_url": "https://www.jenkins.io/doc/"
+  },
+  {
+    "name": "Tekton",
+    "category": "CI/CD",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 4,
+    "community_health_score": 70,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "docker",
+      "github",
+      "gitlab"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 8,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://tekton.dev",
+    "docs_url": "https://tekton.dev/docs/"
+  },
+  {
+    "name": "CircleCI",
+    "category": "CI/CD",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 78,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "docker",
+      "kubernetes",
+      "aws",
+      "github",
+      "jira",
+      "slack"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://circleci.com",
+    "docs_url": "https://circleci.com/docs/"
+  },
+  {
+    "name": "Prometheus",
+    "category": "Observability & Monitoring",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 92,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "grafana",
+      "alertmanager",
+      "docker",
+      "istio",
+      "jaeger"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 53,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 2,
+    "official_url": "https://prometheus.io",
+    "docs_url": "https://prometheus.io/docs/"
+  },
+  {
+    "name": "Grafana",
+    "category": "Observability & Monitoring",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 93,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [
+      "soc2",
+      "gdpr"
+    ],
+    "integrations": [
+      "prometheus",
+      "loki",
+      "tempo",
+      "kubernetes",
+      "aws",
+      "gcp",
+      "azure",
+      "datadog",
+      "postgres"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 62,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 4,
+    "official_url": "https://grafana.com",
+    "docs_url": "https://grafana.com/docs/"
+  },
+  {
+    "name": "Datadog",
+    "category": "Observability & Monitoring",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 88,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "gdpr",
+      "pci-dss",
+      "iso27001"
+    ],
+    "integrations": [
+      "kubernetes",
+      "docker",
+      "aws",
+      "gcp",
+      "azure",
+      "terraform",
+      "slack",
+      "pagerduty",
+      "jira"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://datadoghq.com",
+    "docs_url": "https://docs.datadoghq.com"
+  },
+  {
+    "name": "New Relic",
+    "category": "Observability & Monitoring",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 82,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "gdpr",
+      "fedramp"
+    ],
+    "integrations": [
+      "kubernetes",
+      "docker",
+      "aws",
+      "gcp",
+      "azure",
+      "slack",
+      "pagerduty"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://newrelic.com",
+    "docs_url": "https://docs.newrelic.com"
+  },
+  {
+    "name": "Terraform",
+    "category": "Infrastructure as Code",
+    "license": "freemium",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 94,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "aws",
+      "gcp",
+      "azure",
+      "kubernetes",
+      "vault",
+      "github",
+      "gitlab",
+      "atlantis"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 40,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 3,
+    "official_url": "https://terraform.io",
+    "docs_url": "https://developer.hashicorp.com/terraform/docs"
+  },
+  {
+    "name": "Pulumi",
+    "category": "Infrastructure as Code",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      ".net",
+      "rust"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 80,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "aws",
+      "gcp",
+      "azure",
+      "kubernetes",
+      "github",
+      "gitlab"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 20,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://pulumi.com",
+    "docs_url": "https://www.pulumi.com/docs/"
+  },
+  {
+    "name": "Ansible",
+    "category": "Infrastructure as Code",
+    "license": "freemium",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 85,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "aws",
+      "gcp",
+      "azure",
+      "kubernetes",
+      "docker",
+      "terraform",
+      "jenkins"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 61,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 4,
+    "official_url": "https://ansible.com",
+    "docs_url": "https://docs.ansible.com"
+  },
+  {
+    "name": "Kubernetes",
+    "category": "Container Orchestration",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 5,
+    "community_health_score": 97,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "docker",
+      "helm",
+      "prometheus",
+      "grafana",
+      "istio",
+      "linkerd",
+      "argo",
+      "flux",
+      "vault"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 107,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 12,
+    "official_url": "https://kubernetes.io",
+    "docs_url": "https://kubernetes.io/docs/"
+  },
+  {
+    "name": "Amazon ECS",
+    "category": "Container Orchestration",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 80,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "pci-dss",
+      "iso27001",
+      "fedramp"
+    ],
+    "integrations": [
+      "aws",
+      "docker",
+      "fargate",
+      "ecr",
+      "alb",
+      "cloudwatch"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 2,
+    "official_url": "https://aws.amazon.com/ecs/",
+    "docs_url": "https://docs.aws.amazon.com/ecs/"
+  },
+  {
+    "name": "Nomad",
+    "category": "Container Orchestration",
+    "license": "freemium",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 72,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "vault",
+      "consul",
+      "terraform",
+      "docker"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 15,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 2,
+    "official_url": "https://nomadproject.io",
+    "docs_url": "https://developer.hashicorp.com/nomad/docs"
+  },
+  {
+    "name": "Vault",
+    "category": "Secrets Management",
+    "license": "freemium",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 4,
+    "community_health_score": 89,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "gdpr",
+      "pci-dss",
+      "iso27001"
+    ],
+    "integrations": [
+      "kubernetes",
+      "aws",
+      "gcp",
+      "azure",
+      "terraform",
+      "ansible",
+      "consul"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 30,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 5,
+    "official_url": "https://vaultproject.io",
+    "docs_url": "https://developer.hashicorp.com/vault/docs"
+  },
+  {
+    "name": "AWS Secrets Manager",
+    "category": "Secrets Management",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 85,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "pci-dss",
+      "iso27001",
+      "fedramp"
+    ],
+    "integrations": [
+      "aws",
+      "ecs",
+      "eks",
+      "lambda",
+      "cloudformation"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://aws.amazon.com/secrets-manager/",
+    "docs_url": "https://docs.aws.amazon.com/secretsmanager/"
+  },
+  {
+    "name": "ArgoCD",
+    "category": "GitOps",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 91,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "helm",
+      "github",
+      "gitlab",
+      "prometheus",
+      "grafana"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 17,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 6,
+    "official_url": "https://argoproj.github.io/argo-cd/",
+    "docs_url": "https://argo-cd.readthedocs.io"
+  },
+  {
+    "name": "Flux",
+    "category": "GitOps",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 82,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "helm",
+      "github",
+      "gitlab",
+      "prometheus"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 6,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 3,
+    "official_url": "https://fluxcd.io",
+    "docs_url": "https://fluxcd.io/docs/"
+  },
+  {
+    "name": "Trivy",
+    "category": "Security & Compliance",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 88,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "docker",
+      "kubernetes",
+      "github-actions",
+      "gitlab-ci",
+      "jenkins"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 22,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://trivy.dev",
+    "docs_url": "https://trivy.dev/latest/docs/"
+  },
+  {
+    "name": "Falco",
+    "category": "Security & Compliance",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 4,
+    "community_health_score": 79,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "prometheus",
+      "slack",
+      "pagerduty",
+      "elasticsearch"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 7,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 2,
+    "official_url": "https://falco.org",
+    "docs_url": "https://falco.org/docs/"
+  },
+  {
+    "name": "Snyk",
+    "category": "Security & Compliance",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 84,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "github",
+      "gitlab",
+      "jenkins",
+      "docker",
+      "kubernetes",
+      "jira",
+      "slack"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://snyk.io",
+    "docs_url": "https://docs.snyk.io"
+  },
+  {
+    "name": "Harbor",
+    "category": "Artifact Registry",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 81,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "docker",
+      "trivy",
+      "notary",
+      "helm",
+      "argo"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 23,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 4,
+    "official_url": "https://goharbor.io",
+    "docs_url": "https://goharbor.io/docs/"
+  },
+  {
+    "name": "Amazon ECR",
+    "category": "Artifact Registry",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 82,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "pci-dss",
+      "iso27001",
+      "fedramp"
+    ],
+    "integrations": [
+      "aws",
+      "ecs",
+      "eks",
+      "codepipeline",
+      "github-actions"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://aws.amazon.com/ecr/",
+    "docs_url": "https://docs.aws.amazon.com/ecr/"
+  },
+  {
+    "name": "Istio",
+    "category": "Service Mesh",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      "other"
+    ],
+    "team_size_fit": [
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 5,
+    "community_health_score": 86,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "prometheus",
+      "grafana",
+      "jaeger",
+      "envoy",
+      "kiali"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 35,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 7,
+    "official_url": "https://istio.io",
+    "docs_url": "https://istio.io/latest/docs/"
+  },
+  {
+    "name": "Linkerd",
+    "category": "Service Mesh",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "rust",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 4,
+    "community_health_score": 78,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "prometheus",
+      "grafana",
+      "jaeger"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 10,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 2,
+    "official_url": "https://linkerd.io",
+    "docs_url": "https://linkerd.io/docs/"
+  },
+  {
+    "name": "PagerDuty",
+    "category": "Incident Management",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 85,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "gdpr",
+      "iso27001"
+    ],
+    "integrations": [
+      "datadog",
+      "prometheus",
+      "grafana",
+      "jira",
+      "slack",
+      "github",
+      "aws-cloudwatch"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://pagerduty.com",
+    "docs_url": "https://developer.pagerduty.com"
+  },
+  {
+    "name": "OpsGenie",
+    "category": "Incident Management",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 78,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "gdpr"
+    ],
+    "integrations": [
+      "prometheus",
+      "grafana",
+      "jira",
+      "slack",
+      "datadog"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://atlassian.com/software/opsgenie",
+    "docs_url": "https://support.atlassian.com/opsgenie/"
+  },
+  {
+    "name": "Infracost",
+    "category": "Cost Management",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 74,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "terraform",
+      "github",
+      "gitlab",
+      "aws",
+      "gcp",
+      "azure"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 10,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://infracost.io",
+    "docs_url": "https://www.infracost.io/docs/"
+  },
+  {
+    "name": "OpenCost",
+    "category": "Cost Management",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 68,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "prometheus",
+      "grafana",
+      "aws",
+      "gcp",
+      "azure"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 5,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://opencost.io",
+    "docs_url": "https://opencost.io/docs/"
+  },
+  {
+    "name": "Helm",
+    "category": "Infrastructure as Code",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 88,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "argo",
+      "flux",
+      "terraform",
+      "github-actions",
+      "gitlab-ci"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 26,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 2,
+    "official_url": "https://helm.sh",
+    "docs_url": "https://helm.sh/docs/"
+  },
+  {
+    "name": "Loki",
+    "category": "Observability & Monitoring",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 84,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [
+      "soc2",
+      "gdpr"
+    ],
+    "integrations": [
+      "grafana",
+      "kubernetes",
+      "prometheus",
+      "fluentd",
+      "vector"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 23,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 2,
+    "official_url": "https://grafana.com/oss/loki/",
+    "docs_url": "https://grafana.com/docs/loki/latest/"
+  },
+  {
+    "name": "SonarQube",
+    "category": "Testing & QA",
+    "license": "freemium",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      ".net",
+      "php",
+      "rust",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 83,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "jenkins",
+      "github-actions",
+      "gitlab-ci",
+      "jira",
+      "azure-devops"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 9,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 3,
+    "official_url": "https://sonarqube.org",
+    "docs_url": "https://docs.sonarqube.org"
+  },
+  {
+    "name": "Kong",
+    "category": "API Gateway",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 82,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "kubernetes",
+      "docker",
+      "aws",
+      "prometheus",
+      "grafana",
+      "datadog"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 38,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 4,
+    "official_url": "https://konghq.com",
+    "docs_url": "https://docs.konghq.com"
+  },
+  {
+    "name": "Elasticsearch",
+    "category": "Log Management",
+    "license": "freemium",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 4,
+    "community_health_score": 87,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "gdpr",
+      "pci-dss"
+    ],
+    "integrations": [
+      "kibana",
+      "logstash",
+      "filebeat",
+      "kubernetes",
+      "fluentd",
+      "grafana",
+      "aws"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 69,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 6,
+    "official_url": "https://elastic.co",
+    "docs_url": "https://www.elastic.co/docs"
+  },
+  {
+    "name": "Docker Swarm",
+    "category": "Container Orchestration",
+    "license": "oss",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 65,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "docker",
+      "prometheus",
+      "grafana",
+      "traefik"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 7,
+    "last_major_release": "2024-Q2",
+    "cve_count_last_12mo": 2,
+    "official_url": "https://docs.docker.com/engine/swarm/",
+    "docs_url": "https://docs.docker.com/engine/swarm/"
+  },
+  {
+    "name": "OpenShift",
+    "category": "Container Orchestration",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      ".net",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 4,
+    "community_health_score": 81,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "pci-dss",
+      "iso27001",
+      "fedramp"
+    ],
+    "integrations": [
+      "kubernetes",
+      "docker",
+      "jenkins",
+      "ansible",
+      "prometheus",
+      "grafana"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 5,
+    "official_url": "https://www.redhat.com/en/technologies/cloud-computing/openshift",
+    "docs_url": "https://docs.openshift.com"
+  },
+  {
+    "name": "Rancher",
+    "category": "Container Orchestration",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 78,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "kubernetes",
+      "docker",
+      "helm",
+      "prometheus",
+      "grafana",
+      "vault"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 22,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 3,
+    "official_url": "https://rancher.com",
+    "docs_url": "https://ranchermanager.docs.rancher.com"
+  },
+  {
+    "name": "Doppler",
+    "category": "Secrets Management",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large"
+    ],
+    "learning_curve": 1,
+    "community_health_score": 77,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2",
+      "gdpr"
+    ],
+    "integrations": [
+      "github-actions",
+      "gitlab-ci",
+      "kubernetes",
+      "docker",
+      "aws",
+      "terraform"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://doppler.com",
+    "docs_url": "https://docs.doppler.com"
+  },
+  {
+    "name": "Infisical",
+    "category": "Secrets Management",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 72,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "github-actions",
+      "gitlab-ci",
+      "kubernetes",
+      "docker",
+      "aws"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 15,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://infisical.com",
+    "docs_url": "https://infisical.com/docs"
+  },
+  {
+    "name": "Azure Key Vault",
+    "category": "Secrets Management",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "azure"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      ".net",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 83,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "pci-dss",
+      "iso27001",
+      "gdpr"
+    ],
+    "integrations": [
+      "azure",
+      "kubernetes",
+      "github-actions",
+      "terraform"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://azure.microsoft.com/en-us/products/key-vault",
+    "docs_url": "https://learn.microsoft.com/en-us/azure/key-vault/"
+  },
+  {
+    "name": "GCP Secret Manager",
+    "category": "Secrets Management",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "gcp"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 81,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "pci-dss",
+      "iso27001",
+      "gdpr"
+    ],
+    "integrations": [
+      "gcp",
+      "kubernetes",
+      "github-actions",
+      "terraform",
+      "cloud-run"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://cloud.google.com/secret-manager",
+    "docs_url": "https://cloud.google.com/secret-manager/docs"
+  },
+  {
+    "name": "Spinnaker",
+    "category": "GitOps",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 5,
+    "community_health_score": 70,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "docker",
+      "aws",
+      "gcp",
+      "azure",
+      "jenkins",
+      "github"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 9,
+    "last_major_release": "2024-Q2",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://spinnaker.io",
+    "docs_url": "https://spinnaker.io/docs/"
+  },
+  {
+    "name": "Weave GitOps",
+    "category": "GitOps",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 69,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "flux",
+      "github",
+      "gitlab",
+      "prometheus"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 6,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://weave.works",
+    "docs_url": "https://docs.gitops.weave.works"
+  },
+  {
+    "name": "Jenkins X",
+    "category": "GitOps",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 4,
+    "community_health_score": 62,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "docker",
+      "github",
+      "gitlab",
+      "helm",
+      "vault"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 4,
+    "last_major_release": "2024-Q1",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://jenkins-x.io",
+    "docs_url": "https://jenkins-x.io/docs/"
+  },
+  {
+    "name": "JFrog Artifactory",
+    "category": "Artifact Registry",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 84,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "gdpr",
+      "iso27001"
+    ],
+    "integrations": [
+      "jenkins",
+      "github-actions",
+      "gitlab-ci",
+      "kubernetes",
+      "docker",
+      "terraform"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 3,
+    "official_url": "https://jfrog.com/artifactory/",
+    "docs_url": "https://jfrog.com/help/r/jfrog-artifactory-documentation"
+  },
+  {
+    "name": "Google Artifact Registry",
+    "category": "Artifact Registry",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "gcp"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 79,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "pci-dss",
+      "iso27001"
+    ],
+    "integrations": [
+      "gcp",
+      "kubernetes",
+      "cloud-build",
+      "github-actions"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://cloud.google.com/artifact-registry",
+    "docs_url": "https://cloud.google.com/artifact-registry/docs"
+  },
+  {
+    "name": "Nexus Repository",
+    "category": "Artifact Registry",
+    "license": "freemium",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 74,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "jenkins",
+      "maven",
+      "gradle",
+      "docker",
+      "kubernetes"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 4,
+    "official_url": "https://www.sonatype.com/products/sonatype-nexus-repository",
+    "docs_url": "https://help.sonatype.com/"
+  },
+  {
+    "name": "Checkov",
+    "category": "Security & Compliance",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 80,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "terraform",
+      "kubernetes",
+      "github-actions",
+      "gitlab-ci",
+      "jenkins",
+      "aws"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 7,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://checkov.io",
+    "docs_url": "https://www.checkov.io/1.Welcome/What%20is%20Checkov.html"
+  },
+  {
+    "name": "OWASP ZAP",
+    "category": "Security & Compliance",
+    "license": "oss",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 76,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "jenkins",
+      "github-actions",
+      "gitlab-ci",
+      "docker"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 12,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 2,
+    "official_url": "https://owasp.org/www-project-zap/",
+    "docs_url": "https://www.zaproxy.org/docs/"
+  },
+  {
+    "name": "Aqua Security",
+    "category": "Security & Compliance",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 81,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "pci-dss",
+      "iso27001",
+      "fedramp"
+    ],
+    "integrations": [
+      "kubernetes",
+      "docker",
+      "jenkins",
+      "github-actions",
+      "gitlab-ci",
+      "aws",
+      "azure"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://www.aquasec.com",
+    "docs_url": "https://docs.aquasec.com"
+  },
+  {
+    "name": "SonarCloud",
+    "category": "Security & Compliance",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      ".net",
+      "ruby",
+      "php",
+      "rust",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large"
+    ],
+    "learning_curve": 1,
+    "community_health_score": 82,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "github",
+      "gitlab",
+      "azure-devops",
+      "jenkins",
+      "bitbucket"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://sonarcloud.io",
+    "docs_url": "https://docs.sonarcloud.io"
+  },
+  {
+    "name": "Selenium",
+    "category": "Testing & QA",
+    "license": "oss",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 80,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "jenkins",
+      "github-actions",
+      "gitlab-ci",
+      "docker",
+      "jira"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 29,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://selenium.dev",
+    "docs_url": "https://www.selenium.dev/documentation/"
+  },
+  {
+    "name": "Playwright",
+    "category": "Testing & QA",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      ".net",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 87,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "github-actions",
+      "gitlab-ci",
+      "jenkins",
+      "docker",
+      "azure-devops"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 65,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://playwright.dev",
+    "docs_url": "https://playwright.dev/docs/intro"
+  },
+  {
+    "name": "k6",
+    "category": "Testing & QA",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "node.js",
+      "python",
+      "go",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 81,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "github-actions",
+      "gitlab-ci",
+      "grafana",
+      "prometheus",
+      "datadog"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 24,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://k6.io",
+    "docs_url": "https://grafana.com/docs/k6/latest/"
+  },
+  {
+    "name": "pytest",
+    "category": "Testing & QA",
+    "license": "oss",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 1,
+    "community_health_score": 85,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "github-actions",
+      "gitlab-ci",
+      "jenkins",
+      "docker",
+      "codecov"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 12,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://pytest.org",
+    "docs_url": "https://docs.pytest.org"
+  },
+  {
+    "name": "Consul Connect",
+    "category": "Service Mesh",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 4,
+    "community_health_score": 76,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "vault",
+      "nomad",
+      "terraform",
+      "envoy"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 3,
+    "official_url": "https://www.consul.io/docs/connect",
+    "docs_url": "https://developer.hashicorp.com/consul/docs"
+  },
+  {
+    "name": "Kuma",
+    "category": "Service Mesh",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 68,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "envoy",
+      "prometheus",
+      "grafana"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 4,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://kuma.io",
+    "docs_url": "https://kuma.io/docs/"
+  },
+  {
+    "name": "AWS App Mesh",
+    "category": "Service Mesh",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      ".net",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 72,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "pci-dss",
+      "iso27001"
+    ],
+    "integrations": [
+      "aws",
+      "ecs",
+      "eks",
+      "fargate",
+      "cloudwatch",
+      "xray"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://aws.amazon.com/app-mesh/",
+    "docs_url": "https://docs.aws.amazon.com/app-mesh/"
+  },
+  {
+    "name": "Alertmanager",
+    "category": "Incident Management",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 78,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "prometheus",
+      "grafana",
+      "slack",
+      "pagerduty",
+      "opsgenie"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 6,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://prometheus.io/docs/alerting/latest/alertmanager/",
+    "docs_url": "https://prometheus.io/docs/alerting/latest/alertmanager/"
+  },
+  {
+    "name": "Squadcast",
+    "category": "Incident Management",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large"
+    ],
+    "learning_curve": 1,
+    "community_health_score": 71,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2",
+      "gdpr"
+    ],
+    "integrations": [
+      "prometheus",
+      "grafana",
+      "datadog",
+      "jira",
+      "slack",
+      "pagerduty",
+      "aws"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://squadcast.com",
+    "docs_url": "https://support.squadcast.com"
+  },
+  {
+    "name": "Grafana OnCall",
+    "category": "Incident Management",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 76,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "grafana",
+      "prometheus",
+      "alertmanager",
+      "slack",
+      "pagerduty",
+      "jira"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 3,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://grafana.com/products/oncall/",
+    "docs_url": "https://grafana.com/docs/oncall/latest/"
+  },
+  {
+    "name": "Kubecost",
+    "category": "Cost Management",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 75,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "prometheus",
+      "grafana",
+      "aws",
+      "gcp",
+      "azure"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 5,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://kubecost.com",
+    "docs_url": "https://docs.kubecost.com"
+  },
+  {
+    "name": "CloudHealth",
+    "category": "Cost Management",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 73,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "aws",
+      "gcp",
+      "azure",
+      "kubernetes"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://cloudhealth.vmware.com",
+    "docs_url": "https://help.apptio.com"
+  },
+  {
+    "name": "Cast AI",
+    "category": "Cost Management",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 70,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2",
+      "gdpr"
+    ],
+    "integrations": [
+      "kubernetes",
+      "aws",
+      "gcp",
+      "azure",
+      "prometheus",
+      "grafana"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://cast.ai",
+    "docs_url": "https://docs.cast.ai"
+  },
+  {
+    "name": "AWS API Gateway",
+    "category": "API Gateway",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "rust",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 82,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "pci-dss",
+      "iso27001",
+      "fedramp"
+    ],
+    "integrations": [
+      "aws",
+      "lambda",
+      "ecs",
+      "eks",
+      "cognito",
+      "cloudwatch"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 0,
+    "official_url": "https://aws.amazon.com/api-gateway/",
+    "docs_url": "https://docs.aws.amazon.com/apigateway/"
+  },
+  {
+    "name": "Traefik",
+    "category": "API Gateway",
+    "license": "freemium",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 83,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "docker",
+      "prometheus",
+      "grafana",
+      "aws",
+      "let-s-encrypt"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 51,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 3,
+    "official_url": "https://traefik.io",
+    "docs_url": "https://doc.traefik.io/traefik/"
+  },
+  {
+    "name": "Envoy",
+    "category": "API Gateway",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 4,
+    "community_health_score": 84,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "kubernetes",
+      "istio",
+      "prometheus",
+      "grafana",
+      "jaeger"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 24,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 5,
+    "official_url": "https://www.envoyproxy.io",
+    "docs_url": "https://www.envoyproxy.io/docs/envoy/latest/"
+  },
+  {
+    "name": "NGINX",
+    "category": "API Gateway",
+    "license": "freemium",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 88,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [
+      "soc2"
+    ],
+    "integrations": [
+      "docker",
+      "kubernetes",
+      "aws",
+      "prometheus",
+      "grafana"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 20,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 4,
+    "official_url": "https://nginx.org",
+    "docs_url": "https://nginx.org/en/docs/"
+  },
+  {
+    "name": "Fluentd",
+    "category": "Log Management",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 77,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "elasticsearch",
+      "kubernetes",
+      "aws",
+      "gcp",
+      "datadog",
+      "splunk"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 12,
+    "last_major_release": "2024-Q3",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://fluentd.org",
+    "docs_url": "https://docs.fluentd.org"
+  },
+  {
+    "name": "Splunk",
+    "category": "Log Management",
+    "license": "commercial",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "ruby",
+      ".net",
+      "php",
+      "other"
+    ],
+    "team_size_fit": [
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 4,
+    "community_health_score": 82,
+    "vendor_lock_in_risk": "high",
+    "compliance_certifications": [
+      "soc2",
+      "hipaa",
+      "pci-dss",
+      "iso27001",
+      "fedramp",
+      "gdpr"
+    ],
+    "integrations": [
+      "aws",
+      "gcp",
+      "azure",
+      "kubernetes",
+      "docker",
+      "pagerduty",
+      "jira"
+    ],
+    "pricing_tier": "paid",
+    "github_stars_k": 0,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 4,
+    "official_url": "https://splunk.com",
+    "docs_url": "https://docs.splunk.com"
+  },
+  {
+    "name": "Vector",
+    "category": "Log Management",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 79,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "elasticsearch",
+      "grafana",
+      "datadog",
+      "aws",
+      "gcp",
+      "kafka",
+      "redis"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 17,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://vector.dev",
+    "docs_url": "https://vector.dev/docs/"
+  },
+  {
+    "name": "Logstash",
+    "category": "Log Management",
+    "license": "freemium",
+    "cloud_native": false,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 3,
+    "community_health_score": 76,
+    "vendor_lock_in_risk": "medium",
+    "compliance_certifications": [
+      "soc2",
+      "gdpr"
+    ],
+    "integrations": [
+      "elasticsearch",
+      "kibana",
+      "kafka",
+      "aws",
+      "gcp",
+      "azure"
+    ],
+    "pricing_tier": "freemium",
+    "github_stars_k": 14,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 3,
+    "official_url": "https://elastic.co/logstash",
+    "docs_url": "https://www.elastic.co/guide/en/logstash/current/index.html"
+  },
+  {
+    "name": "Fluent Bit",
+    "category": "Log Management",
+    "license": "oss",
+    "cloud_native": true,
+    "cloud_compatibility": [
+      "aws",
+      "gcp",
+      "azure",
+      "on-premise",
+      "all"
+    ],
+    "language_compatibility": [
+      "python",
+      "go",
+      "java",
+      "node.js",
+      "other"
+    ],
+    "team_size_fit": [
+      "solo",
+      "small",
+      "mid",
+      "large",
+      "enterprise"
+    ],
+    "learning_curve": 2,
+    "community_health_score": 80,
+    "vendor_lock_in_risk": "low",
+    "compliance_certifications": [],
+    "integrations": [
+      "elasticsearch",
+      "grafana-loki",
+      "datadog",
+      "aws",
+      "kubernetes",
+      "prometheus"
+    ],
+    "pricing_tier": "free",
+    "github_stars_k": 6,
+    "last_major_release": "2024-Q4",
+    "cve_count_last_12mo": 1,
+    "official_url": "https://fluentbit.io",
+    "docs_url": "https://docs.fluentbit.io/manual"
+  }
+]

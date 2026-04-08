@@ -1,0 +1,51 @@
+project_type,team_size,maturity,budget,cloud,languages,compliance,deployment,uptime_sla,tool_chosen,category,outcome_efficiency,outcome_adoption,outcome_stability,overall_outcome
+greenfield,small,intermediate,low,aws,python,none,kubernetes,99.9,GitHub Actions,CI/CD,4,5,4,4.3
+greenfield,solo,beginner,oss,aws,python,none,serverless,99,GitHub Actions,CI/CD,4,5,3,4.0
+greenfield,small,intermediate,low,gcp,go,none,kubernetes,99.9,GitHub Actions,CI/CD,4,4,4,4.0
+migration,mid,advanced,medium,aws,java,soc2,kubernetes,99.99,GitLab CI,CI/CD,4,4,5,4.3
+migration,large,sre,enterprise,azure,.net,soc2,kubernetes,99.999,GitLab CI,CI/CD,5,5,5,5.0
+scaling,mid,intermediate,medium,aws,python,gdpr,kubernetes,99.9,GitHub Actions,CI/CD,4,5,4,4.3
+disaster_recovery,enterprise,sre,enterprise,aws,java,hipaa,kubernetes,99.999,Jenkins,CI/CD,3,3,5,3.7
+modernisation,large,advanced,medium,gcp,go,none,kubernetes,99.9,Tekton,CI/CD,3,3,4,3.3
+greenfield,small,beginner,oss,aws,node.js,none,containers,99.9,GitHub Actions,CI/CD,4,5,3,4.0
+scaling,mid,intermediate,low,aws,python,none,kubernetes,99.9,Jenkins,CI/CD,3,3,4,3.3
+greenfield,small,intermediate,low,aws,python,none,kubernetes,99.9,Prometheus,Observability & Monitoring,4,4,5,4.3
+greenfield,mid,advanced,medium,gcp,go,none,kubernetes,99.99,Prometheus,Observability & Monitoring,5,4,5,4.7
+migration,large,sre,enterprise,aws,java,soc2,kubernetes,99.999,Datadog,Observability & Monitoring,5,4,5,4.7
+scaling,enterprise,sre,enterprise,azure,.net,gdpr,kubernetes,99.999,Datadog,Observability & Monitoring,5,5,5,5.0
+greenfield,solo,beginner,oss,aws,python,none,kubernetes,99,Grafana,Observability & Monitoring,4,4,4,4.0
+migration,mid,intermediate,medium,aws,python,soc2,kubernetes,99.9,Grafana,Observability & Monitoring,4,4,4,4.0
+disaster_recovery,large,advanced,enterprise,aws,python,hipaa,kubernetes,99.999,Datadog,Observability & Monitoring,5,5,5,5.0
+modernisation,mid,advanced,medium,gcp,go,gdpr,kubernetes,99.9,Prometheus,Observability & Monitoring,4,4,5,4.3
+greenfield,small,intermediate,low,aws,python,none,kubernetes,99.9,Terraform,Infrastructure as Code,4,4,4,4.0
+greenfield,mid,advanced,medium,gcp,go,none,kubernetes,99.99,Terraform,Infrastructure as Code,5,4,5,4.7
+migration,large,sre,enterprise,aws,java,soc2,kubernetes,99.999,Terraform,Infrastructure as Code,5,5,5,5.0
+scaling,enterprise,sre,enterprise,azure,.net,iso27001,kubernetes,99.999,Pulumi,Infrastructure as Code,4,4,5,4.3
+greenfield,solo,beginner,oss,aws,python,none,vms,99,Ansible,Infrastructure as Code,4,4,4,4.0
+migration,mid,intermediate,medium,aws,python,gdpr,vms,99.9,Ansible,Infrastructure as Code,4,4,4,4.0
+greenfield,small,intermediate,low,aws,python,none,kubernetes,99.9,Kubernetes,Container Orchestration,4,3,5,4.0
+migration,large,advanced,enterprise,aws,java,soc2,kubernetes,99.999,Kubernetes,Container Orchestration,5,4,5,4.7
+greenfield,small,beginner,low,aws,python,none,containers,99.9,Amazon ECS,Container Orchestration,4,5,4,4.3
+scaling,mid,intermediate,medium,aws,node.js,none,containers,99.9,Amazon ECS,Container Orchestration,4,4,4,4.0
+greenfield,small,intermediate,low,aws,python,none,kubernetes,99.9,Vault,Secrets Management,4,3,5,4.0
+migration,enterprise,sre,enterprise,aws,java,hipaa,kubernetes,99.999,Vault,Secrets Management,5,4,5,4.7
+greenfield,small,beginner,low,aws,python,none,serverless,99.9,AWS Secrets Manager,Secrets Management,5,5,4,4.7
+greenfield,small,intermediate,low,aws,python,none,kubernetes,99.9,ArgoCD,GitOps,4,4,5,4.3
+migration,mid,advanced,medium,gcp,go,none,kubernetes,99.99,ArgoCD,GitOps,5,4,5,4.7
+scaling,large,sre,enterprise,aws,java,soc2,kubernetes,99.999,ArgoCD,GitOps,5,5,5,5.0
+greenfield,small,intermediate,low,aws,python,none,kubernetes,99.9,Flux,GitOps,4,3,4,3.7
+greenfield,small,intermediate,low,aws,python,none,kubernetes,99.9,Trivy,Security & Compliance,4,5,4,4.3
+migration,large,advanced,enterprise,aws,java,soc2,kubernetes,99.999,Trivy,Security & Compliance,5,5,5,5.0
+greenfield,mid,advanced,medium,gcp,go,gdpr,kubernetes,99.9,Snyk,Security & Compliance,4,5,4,4.3
+migration,enterprise,sre,enterprise,aws,java,hipaa,kubernetes,99.999,Falco,Security & Compliance,3,3,5,3.7
+greenfield,mid,advanced,medium,aws,python,none,kubernetes,99.9,Harbor,Artifact Registry,4,3,4,3.7
+greenfield,small,beginner,low,aws,python,none,containers,99.9,Amazon ECR,Artifact Registry,5,5,4,4.7
+scaling,large,sre,enterprise,aws,java,soc2,kubernetes,99.999,Istio,Service Mesh,4,3,5,4.0
+modernisation,enterprise,advanced,enterprise,azure,.net,gdpr,kubernetes,99.999,Istio,Service Mesh,4,3,5,4.0
+scaling,mid,advanced,medium,aws,go,none,kubernetes,99.9,Linkerd,Service Mesh,4,4,4,4.0
+scaling,large,sre,enterprise,aws,java,soc2,kubernetes,99.999,PagerDuty,Incident Management,5,5,5,5.0
+migration,mid,intermediate,medium,aws,python,gdpr,kubernetes,99.9,OpsGenie,Incident Management,4,4,4,4.0
+greenfield,mid,intermediate,medium,aws,python,none,kubernetes,99.9,Infracost,Cost Management,4,5,4,4.3
+scaling,large,advanced,enterprise,aws,java,soc2,kubernetes,99.999,OpenCost,Cost Management,4,4,4,4.0
+greenfield,small,beginner,oss,aws,python,none,kubernetes,99.9,Helm,Infrastructure as Code,4,5,4,4.3
+migration,large,sre,enterprise,aws,java,soc2,kubernetes,99.999,Helm,Infrastructure as Code,5,5,5,5.0

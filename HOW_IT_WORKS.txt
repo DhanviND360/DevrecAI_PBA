@@ -1,0 +1,423 @@
+
+================================================================================
+                      DEVRECAI — HOW IT WORKS
+              AI-Powered DevOps Tool Recommendation Engine
+================================================================================
+
+--------------------------------------------------------------------------------
+WHAT IS DEVRECAI?
+--------------------------------------------------------------------------------
+
+DevRecAI is a terminal-based (TUI) application that helps you pick the right
+DevOps tools for your project. You fill in a short questionnaire about your
+team, your project, your technology stack, your budget, and your deployment
+setup. The app then scores every tool in its knowledge base against your answers
+and shows you a ranked table of the best-fit tools, organised by category.
+
+It is completely offline-capable for the scoring part. The AI (LLM) features
+like deep explanations, comparisons, and report generation are optional and only
+activate when you supply an API key.
+
+You launch it from any terminal with:
+
+    devrec run
+
+--------------------------------------------------------------------------------
+THE FIVE-STEP INPUT WIZARD
+--------------------------------------------------------------------------------
+
+When you start a new session, a wizard walks you through five steps. Every
+answer you give feeds directly into the scoring engine.
+
+STEP 1 — PROJECT BASICS
+  - Project Name: just a label for saving the session.
+  - Project Type: choose from Greenfield, Migration, Scaling, Modernisation,
+    or Disaster Recovery. This is encoded as a number and used later by the
+    ML scorer.
+  - Brief Description: a free-text field you write for yourself (it is included
+    in exported reports but not used by the scorer directly).
+
+STEP 2 — TEAM PROFILE
+  - Team Size: Solo / Small (2-10) / Mid (11-50) / Large (51-200) / Enterprise
+    (200+). This is used to check whether a tool's complexity level matches the
+    size of your team.
+  - DevOps Maturity: Beginner / Intermediate / Advanced / SRE-level. Tools that
+    have a steep learning curve are penalised for beginner and intermediate
+    teams.
+  - Tooling Budget: Open-source only / Low (<$500/mo) / Medium ($500-5k/mo) /
+    Enterprise (unlimited). Paid tools are penalised if they exceed your budget.
+
+STEP 3 — TECHNOLOGY STACK
+  - Primary Languages: checkboxes for Python, Go, Java, Node.js, Ruby, Rust,
+    .NET, PHP, and Other.
+  - Cloud Provider(s): AWS, GCP, Azure, On-premise, Hybrid, Multi-cloud.
+  - Existing Tools: a comma-separated list of tools you already use. This is
+    used to measure how well a candidate tool integrates with what you already
+    have.
+
+STEP 4 — REQUIREMENTS & PAIN POINTS
+  - Top Priorities: checkboxes for things like CI/CD speed, Security &
+    compliance, Observability, Cost optimisation, Developer experience,
+    Scalability, Reliability.
+  - Pain Points: free-text description of your current problems (included in
+    reports and read by the LLM when generating explanations).
+  - Compliance Requirements: None, SOC2, HIPAA, GDPR, PCI-DSS, ISO27001,
+    FedRAMP. Tools that lack the required certifications are scored down heavily.
+
+STEP 5 — DEPLOYMENT & INFRASTRUCTURE
+  - Deployment Style: Kubernetes, ECS/Nomad, Serverless, VMs, Bare metal,
+    Hybrid.
+  - Desired Deployment Frequency: Many times per day / Daily / Weekly / Monthly
+    / On demand.
+  - Uptime SLA Target: 99% through 99.999%. These two fields are stored in your
+    project profile and are used by the ML scorer's feature vector.
+
+After you complete all five steps, the app moves to a processing screen where
+all the scoring happens in the background.
+
+--------------------------------------------------------------------------------
+THE TOOL KNOWLEDGE BASE
+--------------------------------------------------------------------------------
+
+The app ships with a file called tools.json inside the devrecai/data/ folder.
+This file contains the specs for all the DevOps tools the engine knows about.
+Each tool entry has:
+
+  - name: the tool's name (e.g. "GitHub Actions", "ArgoCD", "Datadog").
+  - category: which group it belongs to (see the list of categories below).
+  - pricing_tier: free, freemium, paid, or enterprise.
+  - team_size_fit: which team sizes it is suitable for.
+  - learning_curve: a number from 1 (very easy) to 5 (expert-level).
+  - language_compatibility: list of programming languages it works well with.
+  - cloud_compatibility: list of cloud platforms it supports (or "agnostic").
+  - compliance_certifications: SOC2, HIPAA, GDPR, etc.
+  - community_health_score: a number from 0 to 100 reflecting stars, release
+    cadence, and community activity.
+  - vendor_lock_in_risk: low, medium, or high.
+  - cve_count_last_12mo: how many security vulnerabilities were disclosed in the
+    last 12 months (used by the ML feature vector).
+  - integrations: list of other tools this one connects with (e.g. "Slack",
+    "Jira", "Terraform").
+
+The 14 tool categories are:
+  CI/CD, Observability & Monitoring, Security & Compliance,
+  Infrastructure as Code, Container Orchestration, Artifact Registry,
+  Secrets Management, GitOps, Testing & QA, Service Mesh,
+  Incident Management, Cost Management, API Gateway, Log Management.
+
+--------------------------------------------------------------------------------
+HOW THE SCORING ENGINE WORKS
+--------------------------------------------------------------------------------
+
+The scoring engine can run in three different modes. You can switch the mode
+from the Configuration screen inside the app or by editing the config file at:
+
+    ~/.devrec/config.yaml
+
+MODE 1 — RULE-BASED (always available, no AI required)
+  This is the default fallback. It uses eight hand-crafted scoring functions,
+  each one measuring a different aspect of how well a tool fits your answers.
+  Each function returns a score between 0.0 and 1.0, these are then weighted
+  and added together to produce a final score out of 100.
+
+  The eight criteria and their weights are:
+
+    Stack Compatibility   — 25%
+      Checks how much overlap there is between the programming languages you
+      listed and the ones the tool supports. Also checks cloud platform overlap.
+      If the tool says "agnostic" for cloud, it scores perfectly here.
+
+    Team Size Fit         — 15%
+      Checks whether the tool's intended audience (its team_size_fit list)
+      matches your team size. If the tool's learning curve is higher than your
+      DevOps maturity level by more than one step, a 30% penalty is applied.
+
+    Budget Fit            — 15%
+      Compares your budget tier with the tool's pricing tier. Free tools always
+      score 100%. Paid tools that fit within your budget score well; tools that
+      exceed your budget score very low.
+
+    Compliance Fit        — 15%
+      If you listed compliance requirements, it checks how many of them the tool
+      actually certifies for. If you listed no compliance needs, every tool
+      scores perfectly in this criterion. If you have requirements but the tool
+      has no certifications at all, it scores just 30%.
+
+    Community Health      — 10%
+      Uses the tool's raw community_health_score (0-100) from the database,
+      normalised to 0.0-1.0.
+
+    Learning Curve        — 10%
+      If the tool's learning difficulty is at or below your DevOps maturity
+      level, it scores 100%. Each step above your maturity reduces the score by
+      25 percentage points.
+
+    Lock-in Risk          — 5%
+      Low vendor lock-in scores 100%, medium scores 60%, high scores 20%.
+      This criterion rewards tools that let you migrate away more easily.
+
+    Integration Breadth   — 5%
+      If you listed existing tools, this checks how many of them the candidate
+      tool integrates with natively. If you listed nothing, it uses the total
+      count of the tool's integrations as a proxy (normalised by 30 tools).
+
+MODE 2 — ML MODEL (requires a trained XGBoost model)
+  Once you have collected enough feedback from real sessions (at least 50 rows
+  by default), you can train a local XGBoost model with:
+
+      devrec train
+
+  When a model is loaded, the app encodes your profile and the tool's specs into
+  a numeric feature vector and asks the model to predict a rating (1-5), which
+  is then converted to a 0-100 score.
+
+  The feature vector includes:
+    - Your team size, DevOps maturity, budget tier (encoded as numbers)
+    - Project type, deployment style, uptime SLA target (encoded as numbers)
+    - Cloud provider (one-hot encoded: one column per cloud option)
+    - Tool's vendor lock-in risk, pricing tier, community health score
+    - Tool's CVE count in the last 12 months (normalised)
+    - Tool's learning curve (inverted so easier = higher value)
+
+  If the model file does not exist yet, the engine falls back to rule-based
+  scoring automatically.
+
+MODE 3 — HYBRID (default mode)
+  The engine tries the ML model first. It uses the community_health_score as a
+  proxy for how confident the model is (a score of 0.0 to 1.0). If confidence
+  is at or above 0.7, the ML prediction is used directly. If confidence is
+  lower, the final score is averaged 50/50 between the ML prediction and the
+  rule-based score. If no model is available, it falls back to pure rule-based.
+
+--------------------------------------------------------------------------------
+THE RESULTS SCREEN AND SCORE TABLE
+--------------------------------------------------------------------------------
+
+After scoring is finished, you see a split-panel screen:
+
+LEFT PANEL — Categories and Tool Tables
+  There is one tab per category (CI/CD, Observability, Security, etc.). Each tab
+  shows a table with one row per tool, sorted from highest score to lowest.
+
+  Column meanings:
+    Rank        — Position within its category (e.g. #1, #2, #3 ...).
+    Tool        — The tool's name.
+    Score /100  — The numeric score from 0 to 100, colour-coded:
+                    Green   = 85 or above
+                    Yellow  = 60 to 84
+                    Red     = below 60
+    Confidence  — A label showing how reliable the score is:
+                    HIGH    = score >= 85
+                    MEDIUM  = score 60-84
+                    LOW     = score below 60
+    Fit         — A descriptive tag:
+                    NATIVE FIT  = score >= 90 (the tool was basically made for you)
+                    STRONG FIT  = score >= 80
+                    GOOD FIT    = score >= 60
+                    MARGINAL FIT = score >= 40
+                    POOR FIT    = score below 40
+
+RIGHT PANEL — AI Explanation Panel
+  When you click on a row (or navigate to it with arrow keys), the right panel
+  shows either a pre-generated AI explanation from the processing step, or a
+  prompt telling you to press [E] for a live deep-dive.
+
+  Press [E] to ask the LLM for a detailed explanation of why that specific tool
+  got its score for your specific project. The LLM response includes:
+    - A Fit Summary (why this tool does or does not suit your project)
+    - Integration Notes (how it would connect with your existing stack)
+    - Risks (what could go wrong)
+    - Maturity Required (the DevOps experience level needed)
+    - Confidence Level
+
+--------------------------------------------------------------------------------
+THE COMPARISON FEATURE ([C] KEY)
+--------------------------------------------------------------------------------
+
+Pressing [C] on the Results screen opens the Comparison screen. You type in
+2 or 3 tool names (they must be names that appear in the results tables) and
+press the Compare button. The screen then builds a comparison table with one
+column per tool and these rows:
+
+  Setup Complexity, Team Fit, Cost at Scale, Community Support,
+  Cloud Integration, Security Posture, Learning Curve, Vendor Risk
+
+Each cell shows the tool's score and is colour-coded green/yellow/red the same
+way as the main results table. This gives you a quick side-by-side picture of
+where one tool is stronger or weaker than another.
+
+What the comparison table pulls from:
+  - The scores each tool already received from the scoring engine (the same
+    Score /100 values you see in the results).
+  - Pre-generated LLM explanations if they exist.
+
+For the comparison to show data, the tool names you type must match exactly
+(case-insensitive) the names in the scored results. If you misspell a name or
+enter a tool that was not in the knowledge base, that column will show N/A.
+
+--------------------------------------------------------------------------------
+AI EXPLANATIONS AND WHAT THEY REQUIRE
+--------------------------------------------------------------------------------
+
+AI-powered explanations (both the automatic ones generated during processing
+and the on-demand [E] deep dives) require a working LLM API key. The app
+supports three providers:
+
+  1. Anthropic (Claude) — default provider
+     Set the environment variable: ANTHROPIC_API_KEY
+     Default model: claude-sonnet-4-20250514
+
+  2. OpenAI (GPT)
+     Set the environment variable: OPENAI_API_KEY
+     Default model: gpt-4o
+
+  3. Custom OpenAI-compatible endpoint (for local models like Ollama)
+     Set CUSTOM_LLM_KEY and CUSTOM_LLM_URL in your environment.
+
+If the primary provider fails, the app automatically tries the other provider
+before giving up. If no API key is set at all, the scoring still works perfectly
+(rule-based mode), but the explanation panel will show an error message instead
+of AI-generated text.
+
+You can configure the provider and model from inside the TUI with option [3]
+Configuration, or by editing ~/.devrec/config.yaml directly.
+
+--------------------------------------------------------------------------------
+EXPORT FEATURE ([X] KEY)
+--------------------------------------------------------------------------------
+
+Pressing [X] on the Results screen opens the Export screen. It automatically
+generates two files in the ~/devrec-reports/ folder (or whatever directory you
+configured):
+
+  1. A Markdown report (.md) — always generated. Contains your project profile,
+     the full ranked tables for every category, and any AI explanations that
+     were generated during the session.
+
+  2. A PDF report (.pdf) — generated if WeasyPrint is installed. This is an
+     optional dependency. If it is not installed, the app skips PDF generation
+     and tells you.
+
+You can also re-export any past session from the Session History screen by
+pressing [E] while a session is highlighted.
+
+--------------------------------------------------------------------------------
+SESSION HISTORY
+--------------------------------------------------------------------------------
+
+Every recommendation session you complete is automatically saved to a local
+DuckDB database at ~/.devrec/. You can browse past sessions from the main menu
+with option [2] Session History, or from the Results screen with the [H] key.
+
+From the History screen you can:
+  - View a past session's results again ([Enter])
+  - Re-export it as Markdown and PDF ([E])
+  - Delete it permanently ([D])
+
+Sessions are listed with: a short session ID, the project name, the date, the
+top-ranked tool across all categories, and the session status.
+
+--------------------------------------------------------------------------------
+FEEDBACK AND ML TRAINING
+--------------------------------------------------------------------------------
+
+After using tools that the app recommended, you can rate how well they actually
+worked for you using the feedback command:
+
+    devrec feedback --session <session-id>
+
+The feedback form asks you to rate a specific tool on three dimensions:
+  - Efficiency Outcome: did it speed up your processes? (1-5)
+  - Adoption Outcome: how easily did your team actually adopt it? (1-5)
+  - Stability Outcome: how reliably did it run in production? (1-5)
+
+These three ratings are averaged into an overall score (1-5) which is saved
+to the local DuckDB database. Once you have collected at least 50 feedback
+entries, you can retrain the local XGBoost ML model with:
+
+    devrec train
+
+The trained model is saved to ~/.devrec/models/latest.json. From that point on,
+when scoring mode is set to "ml_model" or "hybrid", your own real-world
+experience directly influences the recommendations for future projects. The
+engine keeps the last 3 trained models and automatically prunes older ones.
+
+--------------------------------------------------------------------------------
+CONFIGURATION
+--------------------------------------------------------------------------------
+
+All settings are stored in ~/.devrec/config.yaml. You can edit them interactively
+from the [3] Configuration screen in the TUI, or by editing the file directly.
+
+Key settings:
+
+  LLM provider       — anthropic, openai, or custom
+  LLM model          — the model name string (e.g. "claude-sonnet-4-20250514")
+  API key env var    — the environment variable name where your key lives
+  Streaming          — whether to stream token-by-token or batch (true/false)
+  Custom URL         — base URL for a custom OpenAI-compatible endpoint
+
+  Scorer mode        — rule_based, ml_model, or hybrid
+  Confidence threshold — the minimum ML confidence to trust the ML score (0-1)
+  ML model path      — path to the XGBoost model file
+
+  Output directory   — where exported reports are saved
+  Auto-export        — automatically export after every session (true/false)
+  Output formats     — list of formats: markdown, pdf
+
+  Theme              — retro-green, amber, ice-blue, or ghost-white
+  Animations         — enable or disable boot and loading animations
+  Boot sequence      — enable or disable the boot animation at startup
+
+Settings can also be overridden using environment variables prefixed with
+DEVREC_. For example, DEVREC_LLM__PROVIDER=openai will override the provider
+without touching the config file.
+
+--------------------------------------------------------------------------------
+SUMMARY OF CLI COMMANDS
+--------------------------------------------------------------------------------
+
+  devrec run                Launch the full interactive TUI
+  devrec run --skip-boot    Launch TUI without the boot animation
+  devrec history            Go directly to the Session History screen
+  devrec config             Go directly to the Configuration screen
+  devrec feedback --session <id>    Rate a past session's tool outcome
+  devrec export --session <id>      Re-export a past session to Markdown + PDF
+  devrec train              Retrain the local XGBoost ML model on feedback data
+  devrec train --force      Force retraining even with fewer than 50 samples
+  devrec --help             Show all available commands
+
+--------------------------------------------------------------------------------
+KEY TAKEAWAYS FOR THE SCORING AND COMPARISON TO WORK CORRECTLY
+--------------------------------------------------------------------------------
+
+1. Fill in all five wizard steps accurately. The more honest and specific your
+   answers, the better the scores will reflect reality.
+
+2. List your existing tools (Step 3) even if it feels tedious. Without them,
+   the integration breadth score falls back to a raw count, which is much less
+   accurate.
+
+3. Pick the right compliance requirements. Leaving them all blank means every
+   tool gets a perfect compliance score. For regulated industries, always tick
+   the right boxes.
+
+4. Match team size and DevOps maturity honestly. These two fields together
+   determine whether a tool's learning curve is considered acceptable or a
+   liability.
+
+5. For comparison to show meaningful data: use exact tool names as they appear
+   in the results table. The comparison looks up scores from the results that
+   were already computed, so only tools that were scored in your session can be
+   compared.
+
+6. For AI explanations: you need a valid API key set in your environment before
+   launching the app. The scoring itself never requires a key.
+
+7. For ML scoring to be active: you need to have collected at least 50 feedback
+   entries and run "devrec train" at least once. Without a trained model file,
+   the hybrid and ml_model modes silently fall back to rule_based.
+
+================================================================================
+                         END OF DOCUMENT
+================================================================================

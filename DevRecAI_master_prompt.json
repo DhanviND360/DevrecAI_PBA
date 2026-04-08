@@ -1,0 +1,588 @@
+{
+  "project": {
+    "name": "DevRecAI",
+    "tagline": "AI-powered DevOps tool recommendation engine — terminal native, privacy first",
+    "cli_entrypoint": "devrec",
+    "language": "Python 3.11+",
+    "framework": "Textual (TUI)",
+    "target_users": "DevOps engineers, platform engineers, CTOs, engineering leads"
+  },
+
+  "aesthetic": {
+    "theme": "retro-terminal",
+    "era": "1990s-2000s CRT terminal",
+    "color_palette": {
+      "background": "#0A0A0A",
+      "primary": "#00FF41",
+      "secondary": "#FF6B00",
+      "accent": "#00CFFF",
+      "warning": "#FFD700",
+      "error": "#FF3131",
+      "muted": "#1A1A1A",
+      "border": "#003B00",
+      "text_dim": "#005F00",
+      "highlight": "#39FF14"
+    },
+    "font_style": "monospace, CP437 box-drawing characters, ASCII art headers",
+    "animations": {
+      "startup": [
+        "BIOS-style POST boot sequence with fake hardware detection lines",
+        "Scanline flicker effect on the ASCII art logo",
+        "Typewriter effect printing 'Initializing DevRecAI...'",
+        "Fake progress bar: [████████░░░░░░░░] 53% Loading recommendation engine...",
+        "Random blinking cursor before interface appears"
+      ],
+      "transitions": "CRT screen wipe between panels",
+      "loading": "Spinning ASCII spinner: |  /  -  \\ cycling with status messages",
+      "completion": "Matrix-style green character rain for 1.5 seconds on success"
+    },
+    "logo": {
+      "type": "ASCII art",
+      "text": "DEVRECAI",
+      "style": "Block letters in bright green, scanline shimmer on load"
+    }
+  },
+
+  "project_structure": {
+    "root": "devrecai/",
+    "directories": {
+      "devrecai/": "Main package root",
+      "devrecai/cli/": "CLI entrypoints and command routing",
+      "devrecai/tui/": "All Textual screens, widgets, and layouts",
+      "devrecai/tui/screens/": "Individual screen classes",
+      "devrecai/tui/widgets/": "Reusable custom Textual widgets",
+      "devrecai/tui/animations/": "Startup and transition animation sequences",
+      "devrecai/engine/": "Core recommendation and scoring logic",
+      "devrecai/engine/scorer.py": "Weighted multi-criteria scoring engine",
+      "devrecai/engine/rules.py": "Static rule-based fallback scoring",
+      "devrecai/engine/ml_scorer.py": "XGBoost trained model scorer",
+      "devrecai/engine/tools_db.py": "DevOps tool knowledge base loader",
+      "devrecai/llm/": "All LLM integrations and prompt management",
+      "devrecai/llm/client.py": "Unified LLM client (OpenAI / Anthropic / local)",
+      "devrecai/llm/prompts.py": "All system prompts and user prompt builders",
+      "devrecai/llm/explainer.py": "Recommendation explainability layer",
+      "devrecai/data/": "Static data, tool database, trained models",
+      "devrecai/data/tools.json": "Curated DevOps tools knowledge base",
+      "devrecai/data/model/": "Trained XGBoost model artifacts (.json, .ubj)",
+      "devrecai/data/training/": "Training datasets in CSV/JSONL format",
+      "devrecai/storage/": "Session persistence, history, feedback store",
+      "devrecai/storage/db.py": "DuckDB interface for sessions and feedback",
+      "devrecai/storage/sessions.py": "Session save/resume logic",
+      "devrecai/export/": "Report generation in Markdown and PDF",
+      "devrecai/export/markdown.py": "Markdown report builder",
+      "devrecai/export/pdf.py": "PDF generation via WeasyPrint or ReportLab",
+      "devrecai/config/": "User config management",
+      "devrecai/config/settings.py": "Pydantic settings model, ~/.devrec/config.yaml loader",
+      "tests/": "Unit and integration tests",
+      "pyproject.toml": "Project metadata, dependencies, script entrypoints",
+      "README.md": "Project documentation"
+    }
+  },
+
+  "cli_commands": {
+    "devrec run": {
+      "description": "Launch the full interactive TUI session",
+      "flow": ["boot_animation", "home_screen", "input_wizard", "processing", "results", "export_prompt"]
+    },
+    "devrec history": {
+      "description": "Browse past recommendation sessions in TUI",
+      "flow": ["list_sessions", "select_session", "view_results"]
+    },
+    "devrec export --session <id>": {
+      "description": "Re-export a past session as Markdown and PDF",
+      "flow": ["load_session", "generate_markdown", "generate_pdf", "confirm_saved"]
+    },
+    "devrec config": {
+      "description": "Interactive config editor in TUI",
+      "options": ["LLM provider selection", "API key input (masked)", "preferred model", "output directory", "theme toggle"]
+    },
+    "devrec feedback --session <id>": {
+      "description": "Rate a past session outcome to improve the ML scorer",
+      "flow": ["load_session_summary", "rating_form", "save_to_db", "retrain_check"]
+    },
+    "devrec train": {
+      "description": "Retrain the local XGBoost scorer on accumulated feedback data",
+      "flow": ["check_feedback_count", "feature_extraction", "train_xgboost", "evaluate", "save_model"]
+    }
+  },
+
+  "screens": {
+    "boot_screen": {
+      "description": "Full terminal takeover with retro boot animation",
+      "elements": [
+        "ASCII art DevRecAI logo with scanline shimmer",
+        "Fake BIOS POST lines: detecting CPU, RAM, GPU, LLM engine",
+        "Animated progress bar filling to 100%",
+        "Version string bottom right: v1.0.0 | python 3.11 | powered by AI",
+        "Press any key to continue prompt — blinking block cursor"
+      ],
+      "duration": "3-4 seconds, skippable with any keypress"
+    },
+
+    "home_screen": {
+      "description": "Main menu after boot",
+      "layout": "Centered panel on dark background with scanline texture",
+      "elements": [
+        "ASCII logo (smaller, persistent)",
+        "Menu options with highlighted selection: [1] New Session  [2] History  [3] Config  [4] Exit",
+        "Bottom status bar: model loaded, LLM provider active, date/time",
+        "Random retro tip cycling in footer: DID YOU KNOW: ArgoCD GitOps adoption grew 340% in 2023"
+      ],
+      "navigation": "Arrow keys or number keys"
+    },
+
+    "input_wizard": {
+      "description": "Multi-step form to collect project requirements",
+      "style": "Step-by-step screens, one topic per screen, progress indicator top",
+      "steps": [
+        {
+          "step": 1,
+          "title": "Project Basics",
+          "fields": [
+            {"name": "project_name", "type": "text_input", "label": "Project Name", "required": true},
+            {"name": "project_type", "type": "select", "label": "Project Type", "options": ["Greenfield", "Migration", "Scaling existing", "Modernisation", "Disaster recovery"]},
+            {"name": "description", "type": "textarea", "label": "Brief description (2-3 sentences)", "required": true}
+          ]
+        },
+        {
+          "step": 2,
+          "title": "Team Profile",
+          "fields": [
+            {"name": "team_size", "type": "select", "label": "Team Size", "options": ["Solo (1)", "Small (2-10)", "Mid (11-50)", "Large (51-200)", "Enterprise (200+)"]},
+            {"name": "devops_maturity", "type": "select", "label": "DevOps Maturity", "options": ["Beginner", "Intermediate", "Advanced", "SRE-level"]},
+            {"name": "budget_tier", "type": "select", "label": "Tooling Budget", "options": ["Open-source only", "Low (<$500/mo)", "Medium ($500-5k/mo)", "Enterprise (unlimited)"]}
+          ]
+        },
+        {
+          "step": 3,
+          "title": "Technology Stack",
+          "fields": [
+            {"name": "languages", "type": "multiselect", "label": "Primary Languages", "options": ["Python", "Go", "Java", "Node.js", "Ruby", "Rust", ".NET", "PHP", "Other"]},
+            {"name": "cloud_provider", "type": "multiselect", "label": "Cloud Provider(s)", "options": ["AWS", "GCP", "Azure", "On-premise", "Hybrid", "Multi-cloud"]},
+            {"name": "existing_tools", "type": "text_input", "label": "Existing tools already in use (comma separated)", "required": false}
+          ]
+        },
+        {
+          "step": 4,
+          "title": "Requirements & Pain Points",
+          "fields": [
+            {"name": "priorities", "type": "ranked_multiselect", "label": "Rank your top priorities", "options": ["CI/CD speed", "Security & compliance", "Observability", "Cost optimisation", "Developer experience", "Scalability", "Reliability"]},
+            {"name": "pain_points", "type": "textarea", "label": "Describe your current pain points", "required": true},
+            {"name": "compliance", "type": "multiselect", "label": "Compliance requirements", "options": ["None", "SOC2", "HIPAA", "GDPR", "PCI-DSS", "ISO27001", "FedRAMP"]}
+          ]
+        },
+        {
+          "step": 5,
+          "title": "Deployment & Infrastructure",
+          "fields": [
+            {"name": "deployment_style", "type": "select", "label": "Deployment Style", "options": ["Containers (Kubernetes)", "Containers (ECS/Nomad)", "Serverless", "VMs", "Bare metal", "Hybrid"]},
+            {"name": "deployment_frequency", "type": "select", "label": "Desired Deployment Frequency", "options": ["Multiple times/day", "Daily", "Weekly", "Monthly", "On demand"]},
+            {"name": "uptime_requirement", "type": "select", "label": "Uptime SLA Target", "options": ["99% (7.3 hrs/mo downtime ok)", "99.9% (44 min/mo)", "99.95% (22 min/mo)", "99.99% (4.4 min/mo)", "99.999% (26 sec/mo)"]}
+          ]
+        }
+      ],
+      "ux_notes": [
+        "Each step has a retro-styled header with step count: STEP 3 OF 5 ═══════",
+        "Inline validation with green checkmark or red X per field",
+        "Back/Next navigation with B and N keys",
+        "Progress bar updates at top of screen per step",
+        "Escape shows 'Save & Exit' prompt to preserve partial session"
+      ]
+    },
+
+    "processing_screen": {
+      "description": "Shown while LLM and scorer are running",
+      "elements": [
+        "Large animated ASCII spinner in center",
+        "Cycling status messages: Analysing stack compatibility... | Querying LLM... | Building explanations... | Scoring 47 tools...",
+        "Elapsed time counter",
+        "Subtle random terminal noise characters in background (optional, togglable)"
+      ]
+    },
+
+    "results_screen": {
+      "description": "Main recommendation output screen",
+      "layout": "Split panel: left = tool categories + scores, right = AI explanation",
+      "elements": [
+        {
+          "component": "category_tabs",
+          "description": "Tab bar: CI/CD | Observability | Security | IaC | Registry | Orchestration | Secrets",
+          "navigation": "Tab key or number keys"
+        },
+        {
+          "component": "recommendation_table",
+          "description": "Per-category ranked tool list",
+          "columns": ["Rank", "Tool Name", "Score /100", "Confidence", "Fit Tag"],
+          "example_row": ["#1", "GitHub Actions", "94", "HIGH", "NATIVE FIT"],
+          "color_coding": "Score >85 green, 60-85 yellow, <60 red"
+        },
+        {
+          "component": "explanation_panel",
+          "description": "Right panel showing LLM explanation for selected tool",
+          "style": "Typewriter reveal animation as text streams in",
+          "sections": ["Why this tool fits", "Key risks", "Integration notes", "Alternatives considered"]
+        },
+        {
+          "component": "comparison_mode",
+          "description": "Press C to enter side-by-side comparison of any 2-3 tools",
+          "layout": "Column per tool, rows = criteria, colored diffs"
+        },
+        {
+          "component": "action_bar",
+          "description": "Bottom bar with keybindings",
+          "keys": {
+            "E": "Explain selected tool (re-query LLM)",
+            "C": "Compare mode",
+            "X": "Export report (Markdown + PDF)",
+            "H": "History",
+            "Q": "Quit session"
+          }
+        }
+      ]
+    },
+
+    "export_screen": {
+      "description": "Report generation and save confirmation",
+      "elements": [
+        "Animated file write progress: Writing README_DevRecAI.md... ████████ DONE",
+        "PDF generation spinner",
+        "File path display: Saved to ~/devrec-reports/2026-04-07_acme-platform/",
+        "Option to open report directory"
+      ]
+    },
+
+    "history_screen": {
+      "description": "Scrollable list of all past sessions",
+      "columns": ["Session ID", "Project Name", "Date", "Top Tool", "Status"],
+      "actions": ["Enter to view", "D to delete", "E to re-export"]
+    },
+
+    "config_screen": {
+      "description": "Settings management",
+      "sections": [
+        "LLM Provider: [OpenAI] [Anthropic] [Local/Custom]",
+        "API Key: ●●●●●●●●●●●● [Edit]",
+        "Model: gpt-4o / claude-sonnet / custom",
+        "Output Directory: ~/devrec-reports/",
+        "Scorer Mode: [Rule-based] [ML Model] [Hybrid]",
+        "Theme: [Retro Green] [Amber] [Ice Blue] [Ghost White]"
+      ]
+    }
+  },
+
+  "recommendation_engine": {
+    "tool_categories": [
+      "CI/CD", "Observability & Monitoring", "Security & Compliance",
+      "Infrastructure as Code", "Container Orchestration", "Artifact Registry",
+      "Secrets Management", "Service Mesh", "GitOps", "Testing & QA",
+      "Incident Management", "Cost Management", "API Gateway", "Log Management"
+    ],
+
+    "tools_database": {
+      "format": "JSON",
+      "per_tool_fields": [
+        "name", "category", "license (oss/commercial/freemium)",
+        "cloud_native (bool)", "cloud_compatibility []",
+        "language_compatibility []", "team_size_fit []",
+        "learning_curve (1-5)", "community_health_score (1-100)",
+        "vendor_lock_in_risk (low/medium/high)",
+        "compliance_certifications []",
+        "integrations []",
+        "pricing_tier", "github_stars_k", "last_major_release",
+        "cve_count_last_12mo", "official_url", "docs_url"
+      ],
+      "example_tools": [
+        "GitHub Actions", "GitLab CI", "Jenkins", "Tekton", "ArgoCD",
+        "Flux", "Prometheus", "Grafana", "Datadog", "New Relic",
+        "Terraform", "Pulumi", "Ansible", "Helm", "Kubernetes",
+        "Nomad", "ECS", "Trivy", "Falco", "Vault", "AWS Secrets Manager",
+        "Istio", "Linkerd", "Harbor", "ECR", "Artifactory",
+        "PagerDuty", "OpsGenie", "Infracost", "OpenCost"
+      ]
+    },
+
+    "scoring_modes": {
+      "rule_based": {
+        "description": "Deterministic weighted scoring, no ML required, works offline always",
+        "criteria": {
+          "stack_compatibility": {"weight": 0.25, "description": "How well tool integrates with user language and cloud"},
+          "team_size_fit": {"weight": 0.15, "description": "Complexity vs team capability match"},
+          "budget_fit": {"weight": 0.15, "description": "License cost vs declared budget tier"},
+          "compliance_fit": {"weight": 0.15, "description": "Tool certifications vs required compliance"},
+          "community_health": {"weight": 0.10, "description": "Stars trend, release cadence, issue response"},
+          "learning_curve": {"weight": 0.10, "description": "Onboarding cost vs team maturity"},
+          "lock_in_risk": {"weight": 0.05, "description": "Vendor dependency penalty"},
+          "integration_breadth": {"weight": 0.05, "description": "How many existing stack tools it connects with"}
+        }
+      },
+      "ml_model": {
+        "description": "XGBoost model trained on real-world DevOps project outcome data",
+        "model_type": "XGBoostRegressor",
+        "features": [
+          "team_size_encoded", "maturity_encoded", "budget_encoded",
+          "cloud_provider_onehot", "language_onehot", "project_type_encoded",
+          "compliance_flags", "deployment_style_encoded", "uptime_sla_encoded",
+          "tool_stack_compat_score", "tool_lock_in_score", "tool_cve_score",
+          "tool_community_score", "tool_pricing_fit"
+        ],
+        "target": "outcome_score (1-5, collected from user feedback)",
+        "training_data": {
+          "description": "How to build real-world training data",
+          "approach": [
+            "STEP 1: Curate an initial synthetic dataset of 500-1000 project profiles paired with tool choices and plausible outcome scores. Use domain expertise and public DevOps survey data (DORA, Stack Overflow Developer Survey, CNCF Annual Survey) to anchor scores to real-world patterns.",
+            "STEP 2: Ship the app with rule-based scorer first. Collect feedback from real users via devrec feedback command. Each rated session adds one training row.",
+            "STEP 3: After 50+ rated sessions, run devrec train to retrain XGBoost on the accumulated real feedback, replacing the synthetic bootstrap.",
+            "STEP 4: Optionally allow users to opt-in to contributing anonymised feedback to a shared public dataset to improve the community model.",
+            "DATASETS TO REFERENCE: DORA State of DevOps Report (dora.dev), CNCF Annual Survey (cncf.io/reports), Stack Overflow Developer Survey (insights.stackoverflow.com), ThoughtWorks Technology Radar, db-engines.com rankings for tool popularity trends"
+          ],
+          "schema": {
+            "columns": ["project_type", "team_size", "maturity", "budget", "cloud", "languages", "compliance", "deployment", "uptime_sla", "tool_chosen", "category", "outcome_efficiency", "outcome_adoption", "outcome_stability", "overall_outcome"],
+            "example_row": ["greenfield", "small", "intermediate", "low", "aws", "python,go", "none", "kubernetes", "99.9", "GitHub Actions", "ci_cd", 4, 5, 4, 4.3]
+          }
+        },
+        "retraining": {
+          "trigger": "manual via devrec train OR auto when feedback_count % 25 == 0",
+          "validation": "80/20 train-test split, log RMSE and feature importances to ~/.devrec/training_log.json",
+          "model_versioning": "Save timestamped model artifacts, keep last 3 versions for rollback"
+        }
+      },
+      "hybrid": {
+        "description": "Default mode. Uses ML score if model confidence > 0.7 else blends with rule-based 50/50",
+        "confidence_threshold": 0.7
+      }
+    }
+  },
+
+  "llm_integration": {
+    "providers": {
+      "openai": {"models": ["gpt-4o", "gpt-4o-mini"], "env_var": "OPENAI_API_KEY"},
+      "anthropic": {"models": ["claude-sonnet-4-20250514", "claude-haiku-4-5"], "env_var": "ANTHROPIC_API_KEY"},
+      "custom": {"description": "Any OpenAI-compatible endpoint, e.g. local server", "env_vars": ["CUSTOM_LLM_URL", "CUSTOM_LLM_KEY"]}
+    },
+    "default_provider": "anthropic",
+    "default_model": "claude-sonnet-4-20250514",
+    "fallback_chain": ["anthropic", "openai", "rule_based_only"],
+
+    "system_prompt": "You are DevRecAI, an expert DevOps architect with 15+ years of experience across startups, scaleups, and enterprises. You have deep hands-on knowledge of the entire DevOps toolchain including CI/CD, observability, security, IaC, and cloud platforms. When explaining tool recommendations: (1) Be specific and reference the user's actual project context, (2) Quantify tradeoffs where possible, (3) Acknowledge uncertainty honestly, (4) Flag vendor lock-in risks explicitly, (5) Never recommend tools you are uncertain about. Always structure your explanations clearly.",
+
+    "prompt_templates": {
+      "recommendation_explanation": "Project Profile:\n{profile_json}\n\nScoring Engine Output:\n{scored_tools_json}\n\nFor the top 3 tools in each category, write a structured explanation covering: (1) Why this tool fits this specific project, (2) Key integration considerations with their existing stack, (3) Risks and honest tradeoffs, (4) What maturity level is needed to operate it well. Be concise but specific. Format as JSON with tool_name, fit_summary, integration_notes, risks, maturity_required, confidence_level fields.",
+
+      "single_tool_deep_dive": "Project Profile:\n{profile_json}\n\nThe user wants a deep dive on: {tool_name} (Score: {score}/100)\n\nProvide: (1) Detailed explanation of fit, (2) Step-by-step integration path with their stack, (3) Estimated time to productive use, (4) Real-world usage examples from similar companies, (5) Top 3 alternatives and why this beats them for this profile. Be honest about weaknesses.",
+
+      "comparison_mode": "Project Profile:\n{profile_json}\n\nCompare these tools side by side for this project:\n{tool_list_json}\n\nReturn a JSON comparison matrix with criteria as rows and tools as columns. Criteria: setup_complexity, team_fit, cost_at_scale, community_support, cloud_integration, security_posture, learning_curve, vendor_risk. Score each 1-10 and add one sentence justification per cell.",
+
+      "report_generation": "Project Profile:\n{profile_json}\n\nFull Recommendations:\n{full_results_json}\n\nGenerate a complete professional Markdown report for this DevOps tool selection. Include: Executive Summary, Project Requirements Analysis, Recommended Toolchain (all categories), Tool-by-Tool Justifications, Risk Register, Implementation Roadmap (phased 0-30-60-90 days), Cost Estimate, Next Steps. Write for a technical audience. Use Markdown formatting with headers, tables, and bullet points."
+    },
+
+    "streaming": true,
+    "streaming_note": "Stream LLM output token by token into the explanation panel using Textual's reactive updates for typewriter effect"
+  },
+
+  "export": {
+    "markdown": {
+      "library": "Built-in string formatting + jinja2 templates",
+      "filename_pattern": "{date}_{project_name}_DevRecAI_Report.md",
+      "sections": [
+        "# DevRecAI Report — {project_name}",
+        "## Executive Summary",
+        "## Project Profile",
+        "## Recommended Toolchain",
+        "### Per-Category Recommendations with Scores",
+        "## Tool Justifications (AI-Generated)",
+        "## Risk Register",
+        "## Implementation Roadmap",
+        "## Cost Estimate",
+        "## Appendix: All Scored Tools"
+      ]
+    },
+    "pdf": {
+      "library": "WeasyPrint (preferred, CSS-based) OR ReportLab (fallback)",
+      "method": "Convert generated Markdown to HTML with retro terminal CSS, then render to PDF via WeasyPrint",
+      "styling": "Dark terminal theme in PDF — green on black, monospace fonts, ASCII borders",
+      "filename_pattern": "{date}_{project_name}_DevRecAI_Report.pdf"
+    },
+    "output_directory": "~/devrec-reports/{date}_{project_slug}/"
+  },
+
+  "storage": {
+    "engine": "DuckDB (embedded, file-based, no server)",
+    "database_path": "~/.devrec/sessions.db",
+    "tables": {
+      "sessions": {
+        "columns": ["session_id UUID", "created_at TIMESTAMP", "project_name TEXT", "profile_json JSON", "results_json JSON", "report_path TEXT", "status TEXT"]
+      },
+      "feedback": {
+        "columns": ["feedback_id UUID", "session_id UUID", "tool_name TEXT", "category TEXT", "outcome_efficiency INT", "outcome_adoption INT", "outcome_stability INT", "overall_score FLOAT", "notes TEXT", "submitted_at TIMESTAMP"]
+      },
+      "training_log": {
+        "columns": ["run_id UUID", "run_at TIMESTAMP", "sample_count INT", "rmse FLOAT", "model_path TEXT", "feature_importances JSON"]
+      }
+    }
+  },
+
+  "config": {
+    "file_path": "~/.devrec/config.yaml",
+    "schema": {
+      "llm": {
+        "provider": "anthropic",
+        "model": "claude-sonnet-4-20250514",
+        "api_key_env": "ANTHROPIC_API_KEY",
+        "timeout_seconds": 60,
+        "streaming": true
+      },
+      "scorer": {
+        "mode": "hybrid",
+        "ml_model_path": "~/.devrec/models/latest.json",
+        "confidence_threshold": 0.7
+      },
+      "output": {
+        "directory": "~/devrec-reports/",
+        "auto_export": false,
+        "formats": ["markdown", "pdf"]
+      },
+      "theme": {
+        "name": "retro-green",
+        "animations": true,
+        "boot_sequence": true,
+        "scanlines": true
+      },
+      "feedback": {
+        "prompt_after_days": 30,
+        "auto_retrain_every_n": 25
+      }
+    }
+  },
+
+  "dependencies": {
+    "pyproject_toml": {
+      "python_requires": ">=3.11",
+      "dependencies": [
+        "textual>=0.60.0",
+        "typer>=0.12.0",
+        "rich>=13.0.0",
+        "anthropic>=0.25.0",
+        "openai>=1.30.0",
+        "xgboost>=2.0.0",
+        "scikit-learn>=1.4.0",
+        "duckdb>=0.10.0",
+        "pydantic>=2.5.0",
+        "pydantic-settings>=2.2.0",
+        "jinja2>=3.1.0",
+        "weasyprint>=61.0",
+        "httpx>=0.27.0",
+        "numpy>=1.26.0",
+        "pandas>=2.2.0",
+        "pyyaml>=6.0"
+      ],
+      "dev_dependencies": [
+        "pytest>=8.0.0",
+        "pytest-asyncio>=0.23.0",
+        "textual-dev>=0.60.0",
+        "ruff>=0.4.0",
+        "mypy>=1.10.0"
+      ],
+      "scripts": {
+        "devrec": "devrecai.cli.main:app"
+      }
+    }
+  },
+
+  "key_files_to_implement": {
+    "priority_order": [
+      {
+        "file": "pyproject.toml",
+        "why": "Defines package, installs devrec CLI entrypoint"
+      },
+      {
+        "file": "devrecai/cli/main.py",
+        "why": "Typer app with all CLI commands wired up",
+        "implement": "devrec run, history, export, config, feedback, train commands"
+      },
+      {
+        "file": "devrecai/tui/app.py",
+        "why": "Root Textual App class, theme CSS, screen stack management"
+      },
+      {
+        "file": "devrecai/tui/screens/boot.py",
+        "why": "Retro boot animation — first impression, sets the tone"
+      },
+      {
+        "file": "devrecai/tui/screens/home.py",
+        "why": "Main menu screen"
+      },
+      {
+        "file": "devrecai/tui/screens/input_wizard.py",
+        "why": "5-step input collection form — core UX flow"
+      },
+      {
+        "file": "devrecai/tui/screens/results.py",
+        "why": "Results display with split panel, tab categories, explanation panel"
+      },
+      {
+        "file": "devrecai/data/tools.json",
+        "why": "Tool knowledge base — seed with at least 30-40 real tools across all categories"
+      },
+      {
+        "file": "devrecai/engine/scorer.py",
+        "why": "Rule-based scorer — deterministic, always available fallback"
+      },
+      {
+        "file": "devrecai/llm/client.py",
+        "why": "Unified LLM client with provider switching and streaming support"
+      },
+      {
+        "file": "devrecai/llm/explainer.py",
+        "why": "Calls LLM with structured prompts, parses and streams output"
+      },
+      {
+        "file": "devrecai/export/markdown.py",
+        "why": "Jinja2 template rendering for Markdown report"
+      },
+      {
+        "file": "devrecai/export/pdf.py",
+        "why": "WeasyPrint PDF generation from Markdown/HTML"
+      },
+      {
+        "file": "devrecai/storage/db.py",
+        "why": "DuckDB session persistence and feedback storage"
+      },
+      {
+        "file": "devrecai/engine/ml_scorer.py",
+        "why": "XGBoost inference + retraining pipeline"
+      },
+      {
+        "file": "devrecai/config/settings.py",
+        "why": "Pydantic settings with config.yaml loading and env var override"
+      }
+    ]
+  },
+
+  "build_phases": {
+    "phase_1": {
+      "name": "Foundation",
+      "deliverable": "Working CLI with boot animation, home screen, and input wizard",
+      "files": ["pyproject.toml", "cli/main.py", "tui/app.py", "tui/screens/boot.py", "tui/screens/home.py", "tui/screens/input_wizard.py", "config/settings.py"]
+    },
+    "phase_2": {
+      "name": "Core Engine",
+      "deliverable": "Rule-based scoring + LLM explanations + results screen",
+      "files": ["data/tools.json", "engine/scorer.py", "llm/client.py", "llm/explainer.py", "llm/prompts.py", "tui/screens/results.py"]
+    },
+    "phase_3": {
+      "name": "Export & Persistence",
+      "deliverable": "Markdown/PDF export, session history, DuckDB storage",
+      "files": ["export/markdown.py", "export/pdf.py", "storage/db.py", "storage/sessions.py", "tui/screens/history.py", "tui/screens/export.py"]
+    },
+    "phase_4": {
+      "name": "ML Scorer & Feedback Loop",
+      "deliverable": "XGBoost scorer, feedback collection, retraining pipeline",
+      "files": ["engine/ml_scorer.py", "engine/rules.py", "tui/screens/feedback.py", "data/training/seed_dataset.csv"]
+    },
+    "phase_5": {
+      "name": "Polish & Config",
+      "deliverable": "Config screen, comparison mode, theme variants, full test suite",
+      "files": ["tui/screens/config.py", "tui/screens/comparison.py", "tui/animations/", "tests/"]
+    }
+  }
+}

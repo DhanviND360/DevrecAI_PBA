@@ -1,0 +1,2 @@
+[console_scripts]
+devrec = devrecai.cli.main:app

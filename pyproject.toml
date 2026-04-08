@@ -1,0 +1,74 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "devrecai"
+version = "1.0.0"
+description = "AI-powered DevOps tool recommendation engine — terminal native, privacy first"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "DevRecAI Team" }]
+keywords = ["devops", "AI", "recommendation", "TUI", "terminal", "tools"]
+classifiers = [
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Environment :: Console",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "License :: OSI Approved :: MIT License",
+]
+
+dependencies = [
+    "textual>=0.60.0",
+    "typer>=0.12.0",
+    "rich>=13.0.0",
+    "anthropic>=0.25.0",
+    "openai>=1.30.0",
+    "xgboost>=2.0.0",
+    "scikit-learn>=1.4.0",
+    "duckdb>=0.10.0",
+    "pydantic>=2.5.0",
+    "pydantic-settings>=2.2.0",
+    "jinja2>=3.1.0",
+    "weasyprint>=61.0",
+    "httpx>=0.27.0",
+    "aiohttp>=3.9.0",
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+    "pyyaml>=6.0",
+    "psutil>=5.9.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "textual-dev>=0.60.0",
+    "ruff>=0.4.0",
+    "mypy>=1.10.0",
+]
+
+[project.scripts]
+devrec = "devrecai.cli.main:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["devrecai*"]
+
+[tool.setuptools.package-data]
+devrecai = ["data/*.json", "data/training/*.csv", "data/model/*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "N", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
