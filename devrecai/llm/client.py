@@ -25,7 +25,7 @@ from devrecai.llm.prompts import SYSTEM_PROMPT
 logger = logging.getLogger(__name__)
 
 # Hardcoded Gemini API key (user-provided)
-GEMINI_API_KEY = "AIzaSyBV_-qheLtUAy0-YyzzG5Sl65GXMPr5hao"
+GEMINI_API_KEY = ""
 GEMINI_MODEL = "gemini-2.5-flash-preview-04-17"
 OLLAMA_BASE_URL = "http://localhost:11434"
 OLLAMA_MODEL = "llama3.2:1b"
